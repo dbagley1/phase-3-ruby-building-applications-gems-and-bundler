@@ -131,15 +131,15 @@ From the instructions, looks like we can install `awesome_print` by typing
 `gem install awesome_print`. We can test out the gem in IRB by requiring it:
 
 ```ruby
-require 'awesome_print'
+require "awesome_print"
 ```
 
 From the gem instructions, this gem will print out arrays and hashes nicely, so
 let's try the following in IRB:
 
 ```ruby
-array = [1,2,3,4]
-hash = {:a => 1, :b => 5}
+array = [1, 2, 3, 4]
+hash = { a: 1, b: 5 }
 ap array
 ap hash
 ```
@@ -157,10 +157,7 @@ with each value or key/value separated on a new line:
 ```
 
 ```ruby
-{
-    :a => 1,
-    :b => 5
-}
+{ a: 1, b: 5 }
 ```
 
 Neat! With the gem installed locally, all we need to do is include the `require`
@@ -204,7 +201,7 @@ minimal Gemfile could look like the following:
 ```ruby
 source "https://rubygems.org"
 
-gem 'awesome_print'
+gem "awesome_print"
 ```
 
 Any gems your application relies on should be listed out in the `Gemfile` with
@@ -217,7 +214,7 @@ In addition to listing the gem, we can also specify which versions this
 application works with. For instance, we could add the following:
 
 ```ruby
-gem 'awesome_print', '~> 1.8'
+gem "awesome_print", "~> 1.8"
 ```
 
 Why specify version? Sometimes, a gem developer makes a major change to their
@@ -272,7 +269,7 @@ developers yourself! In that case, Bundler provides a few options.
 You can refer to the gem via its GitHub repository:
 
 ```ruby
-gem 'rack', git: 'https://github.com/rack/rack'
+gem "rack", git: "https://github.com/rack/rack"
 ```
 
 Provided that the GitHub repository is for the gem only, this simple invocation
@@ -283,7 +280,7 @@ options are available to help you help Bundler find the gem. Consult the Bundler
 Or, perhaps the gem is private and needs to be accessed via SSH. No problem.
 
 ```ruby
-gem 'nokogiri', :git => 'login@example.com:some-user-account/some-private-gem.git'
+gem "nokogiri", git: "login@example.com:some-user-account/some-private-gem.git"
 ```
 
 ### Gem Groups
@@ -395,7 +392,7 @@ in a group) and the `development` group.
 **Place the following code in `config/environment.rb`:**
 
 ```ruby
-require 'bundler/setup'
+require "bundler/setup"
 Bundler.require(:default, :development)
 ```
 
@@ -409,13 +406,13 @@ us from needing to `require` each gem individually:
 
 ```rb
 # this code
-require 'bundler/setup'
+require "bundler/setup"
 Bundler.require(:default, :development)
 
 # is equivalent to this code
-require 'rspec'
-require 'rest-client'
-require 'pry'
+require "rspec"
+require "rest-client"
+require "pry"
 ```
 
 ### Working with `bin/run`
@@ -429,7 +426,7 @@ require it here.
 **Place the following code in `bin/run`:**
 
 ```ruby
-require_relative '../config/environment'
+require_relative "../config/environment"
 ```
 
 That's it! Now we can access all of our gems from our `bin/run` file.
